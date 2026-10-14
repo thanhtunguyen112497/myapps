@@ -1,0 +1,20 @@
+/* V15: exact tooth-tip registration and full mouth occlusion while biting. */
+.croc-layer #closedMouth{opacity:0;transition:opacity .12s ease-out;will-change:opacity;pointer-events:none}
+.croc-layer.jaw-closing #closedMouth{opacity:1;transition:opacity .30s cubic-bezier(.6,0,1,1)}
+.croc-layer.jaw-closed #closedMouth{opacity:1;transition:none}
+.croc-layer.jaw-opening #closedMouth{opacity:0;transition:opacity .42s cubic-bezier(.15,.7,.25,1)}
+/* Override historical animations: the upper skull stays attached, closure is a front-facing hinged lip silhouette. */
+.croc-layer.jaw-closing #upperJaw,.croc-layer.jaw-closed #upperJaw,.croc-layer.jaw-opening #upperJaw,
+.croc-layer.jaw-closing #lowerJaw,.croc-layer.jaw-closed #lowerJaw,.croc-layer.jaw-opening #lowerJaw{animation:none!important}
+.croc-layer #biteHand{position:absolute!important;right:auto!important;bottom:auto!important;width:clamp(110px,15vw,180px)!important;height:clamp(160px,21vw,260px)!important;transform-origin:center top!important;z-index:14;opacity:0;pointer-events:none}
+.croc-layer #biteHand svg{display:block;width:100%;height:100%;filter:drop-shadow(0 5px 5px #243b493a)}
+/* Local SVG fingertip at x=92/180, y=7/260; hand anchored so fingertip meets clicked tooth. */
+.croc-layer.finger-press #biteHand{animation:precise-finger-in .42s cubic-bezier(.19,.72,.25,1) forwards!important}
+.croc-layer.finger-touch #biteHand,.croc-layer.jaw-closing #biteHand,.croc-layer.jaw-closed #biteHand{animation:none!important;opacity:1;transform:translate(-51%,-3%) scale(.94)!important}
+.croc-layer.finger-right #biteHand{animation:precise-finger-out .7s ease-in forwards!important}
+.croc-layer.finger-wrong #biteHand{animation:precise-finger-out .62s ease-in forwards!important}
+@keyframes precise-finger-in{0%{opacity:0;transform:translate(65%,105%) rotate(12deg) scale(.83)}15%{opacity:1}80%{opacity:1;transform:translate(-51%,-3%) scale(1)}100%{opacity:1;transform:translate(-51%,-3%) scale(.94)}}
+@keyframes precise-finger-out{0%{opacity:1;transform:translate(-51%,-3%) scale(.94)}100%{opacity:0;transform:translate(70%,105%) rotate(15deg) scale(.85)}}
+.croc-layer #biteMarks{opacity:0}
+.croc-layer.injured #biteMarks{opacity:1!important}
+@media(prefers-reduced-motion:reduce){.croc-layer #closedMouth{transition-duration:.08s}.croc-layer.finger-press #biteHand{animation-duration:.2s!important}}

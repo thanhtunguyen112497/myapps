@@ -1,0 +1,21 @@
+/* V26: Hint must NEVER modify the positioning transform of a tooth SVG group.
+   The group has translate/rotate from JS; animate paint only, not geometry. */
+#crocLayer .croc-tooth.learning-hint{
+  animation:none!important;
+  transform-box:initial!important;
+  transform-origin:initial!important;
+  filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 13px #ffcf32)!important;
+}
+#crocLayer .croc-tooth.learning-hint path:first-child{
+  animation:v26-tooth-highlight .75s ease-in-out infinite alternate!important;
+  fill:#fff9cb!important;stroke:#f1b500!important;stroke-width:5!important;
+}
+#crocLayer .croc-tooth.learning-hint text{fill:#713e13!important;stroke:#fff!important;stroke-width:1.5!important}
+@keyframes v26-tooth-highlight{from{fill:#fffef0;stroke:#f5cf41}to{fill:#fff3a5;stroke:#edab00}}
+/* Put feedback in its own status strip ABOVE the crocodile and balloons. */
+#play .game-feedback-strip{position:relative;display:flex;align-items:center;justify-content:center;min-height:43px;margin:-5px 0 5px;pointer-events:none;z-index:2}
+#play .game-feedback-strip .feedback{position:relative!important;inset:auto!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;transform:none!important;white-space:normal;text-align:center;line-height:1.1;font-size:clamp(20px,2.4vw,32px);text-shadow:1px 2px #fff;max-width:100%;}
+#play .game-feedback-strip .feedback.show{animation:v26-feedback .95s ease-out both!important}
+@keyframes v26-feedback{0%{opacity:0;transform:translateY(7px) scale(.95)}20%{opacity:1;transform:translateY(0) scale(1)}78%{opacity:1}100%{opacity:0}}
+@media(max-height:750px){#play .game-feedback-strip{min-height:33px;margin:-7px 0 3px}}
+@media(prefers-reduced-motion:reduce){#crocLayer .croc-tooth.learning-hint path:first-child{animation:none!important}}

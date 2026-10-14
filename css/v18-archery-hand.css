@@ -1,0 +1,17 @@
+/* V18: centered bow, bottom of playfield; arrow flies from bow to selected balloon. */
+.game-area{position:relative}
+.archery-bow{position:absolute;bottom:4px;left:50%;width:clamp(100px,12vw,155px);height:clamp(88px,14vh,128px);transform:translateX(-50%);z-index:6;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;filter:drop-shadow(0 6px 5px #224d5c66)}
+.archery-bow.hidden{display:none!important}
+.archery-bow svg{width:100%;height:calc(100% - 16px);transform-origin:50% 55%;transform:rotate(var(--aim,0deg));transition:transform 130ms ease-out;overflow:visible}
+.archery-bow.bow-release svg{animation:bow-twang 230ms ease-out}
+@keyframes bow-twang{0%{scale:1}24%{scale:.94 1.04}55%{scale:1.05 .98}100%{scale:1}}
+.bow-caption{font-size:10px;font-weight:900;letter-spacing:1px;color:#fff;text-shadow:0 2px 3px #274c5c}
+.v18-arrow{z-index:12!important;width:clamp(88px,11vw,125px)!important;height:36px!important;transform-origin:95% 50%!important;will-change:transform}
+/* The tip of the LEFTMOST, extended INDEX finger is at (67,6) in the 190x265 SVG. */
+.croc-layer.finger-touch #biteHand,.croc-layer.jaw-closing #biteHand,.croc-layer.jaw-closed #biteHand,.croc-layer.bite-impact #biteHand{transform:translate(-35.3%,-2.3%) scale(.95)!important}
+.croc-layer.finger-press #biteHand{animation:v18-index-in 600ms cubic-bezier(.18,.68,.22,1) forwards!important}
+.croc-layer.finger-wrong #biteHand{animation:v18-index-out 450ms ease-in forwards!important}
+.croc-layer.finger-right #biteHand{animation:v18-index-out 540ms ease-in forwards!important}
+@keyframes v18-index-in{0%{opacity:0;transform:translate(120%,115%) rotate(12deg) scale(.8)}15%{opacity:1}88%{opacity:1;transform:translate(-35.3%,-1%) scale(.95)}100%{opacity:1;transform:translate(-35.3%,-2.3%) scale(.95)}}
+@keyframes v18-index-out{0%{opacity:1;transform:translate(-35.3%,-2.3%) scale(.95)}100%{opacity:0;transform:translate(115%,115%) rotate(12deg) scale(.82)}}
+@media(max-height:650px){.archery-bow{height:75px;width:90px;bottom:0}.bow-caption{display:none}}

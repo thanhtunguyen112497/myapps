@@ -1,0 +1,21 @@
+/* V8 completion dialog: persistent until teacher chooses the next action */
+.completion-overlay{position:absolute;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(17,31,62,.72);backdrop-filter:blur(9px)}
+.completion-overlay.hidden{display:none!important}
+.completion-card{width:min(620px,96%);max-height:100%;overflow-y:auto;text-align:center;padding:clamp(16px,3vw,34px);border:5px solid #fff;border-radius:34px;background:linear-gradient(150deg,#fff8df,#fff 52%,#e4f9ff);box-shadow:0 18px 0 #17275b30,0 35px 85px #0717357d;animation:completion-enter .46s cubic-bezier(.18,1.35,.42,1) both;color:#233b65}
+.completion-trophy{font-size:clamp(45px,6vw,74px);animation:completion-bounce 1.5s ease-in-out infinite}
+.completion-kicker{font-weight:1000;letter-spacing:3px;color:#eb8b25;font-size:13px}
+.completion-card h2{font-size:clamp(26px,4.5vw,45px);line-height:1.06;margin:9px 0;color:#eb5c87;text-shadow:2px 3px #fff}
+.completion-card p{font-size:clamp(13px,1.8vw,17px);margin:9px auto 14px}
+.completion-stats{display:flex;justify-content:center;gap:12px;margin:14px 0 19px}
+.completion-stats>div{flex:1;max-width:150px;display:grid;gap:2px;padding:9px 6px;background:#fff;border:2px solid #d4eafa;border-radius:18px}
+.completion-stats strong{font-size:clamp(22px,3vw,33px);color:#5b69d6}.completion-stats span{font-size:11px;font-weight:800}
+.completion-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.completion-actions button{min-height:49px;padding:10px 8px;border-radius:17px;font-size:clamp(12px,1.5vw,16px);font-weight:900;cursor:pointer}
+.completion-actions .completion-endless{background:linear-gradient(135deg,#5ecf97,#29b9bb)}
+.completion-card .completion-note{font-size:11px;opacity:.72;margin-bottom:0}
+@keyframes completion-enter{from{opacity:0;transform:translateY(38px) scale(.84)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes completion-bounce{50%{transform:translateY(-6px) rotate(-4deg)}}
+@media(max-width:520px){.completion-actions{grid-template-columns:1fr}.completion-card{border-width:3px}.completion-stats{margin:8px 0}.completion-actions button{min-height:39px}}
+@media(prefers-reduced-motion:reduce){.completion-card,.completion-trophy{animation:none!important}}
+
+.infinite-toggle{flex-basis:100%;padding:12px 16px;border:2px solid #74d9bb;border-radius:16px;background:rgba(103,225,184,.16);font-weight:800;line-height:1.45}.infinite-toggle input{width:20px;height:20px;accent-color:#168f73;vertical-align:middle;margin-right:7px}

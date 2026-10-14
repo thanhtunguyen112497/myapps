@@ -1,0 +1,11 @@
+/* V28: independent SVG anchor is the ONLY element allowed to position a tooth. */
+#crocLayer #crocSvg .tooth-anchor{animation:none!important;transition:none!important;transform-box:view-box;transform-origin:0 0;filter:none!important}
+#crocLayer #crocSvg .tooth-anchor>.croc-tooth{transform:none!important;transform-origin:0 0!important;transform-box:view-box!important;animation:none!important;transition:none!important}
+/* Hint is a paint-only pulse: no geometric transform on any part of the tooth. */
+#crocLayer #crocSvg .croc-tooth.learning-hint .tooth-visual{animation:v28-glow .55s ease-in-out infinite alternate!important;transform:none!important;transform-origin:0 0!important;transform-box:view-box!important}
+@keyframes v28-glow{from{filter:drop-shadow(0 0 3px #ffe684) drop-shadow(0 0 8px #ffc400)}to{filter:drop-shadow(0 0 9px #fff8bb) drop-shadow(0 0 18px #ffb800)}}
+#crocLayer #crocSvg .croc-tooth.learning-hint .tooth-visual path:first-child{fill:#fff5b2!important;stroke:#ffc22d!important;stroke-width:5!important}
+/* Only a correct click may trigger the removal of the tooth itself. */
+#crocLayer #crocSvg .croc-tooth.removed .tooth-visual{animation:v28-remove .55s ease-in forwards!important}
+@keyframes v28-remove{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(.35)}}
+@media(prefers-reduced-motion:reduce){#crocLayer #crocSvg .croc-tooth.learning-hint .tooth-visual{animation:none!important;filter:drop-shadow(0 0 10px #ffd000)}}

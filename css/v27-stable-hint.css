@@ -1,0 +1,11 @@
+/* V27: Keep the positional SVG transform on the outer tooth forever. */
+#crocLayer .croc-tooth.learning-hint{animation:none!important;transform-box:initial!important;transform-origin:initial!important}
+#crocLayer .croc-tooth .tooth-visual{transform-box:fill-box;transform-origin:center center;will-change:transform,filter}
+#crocLayer .croc-tooth.learning-hint .tooth-visual{animation:v27-inplace-wiggle .48s ease-in-out infinite!important;filter:drop-shadow(0 0 7px #fff5aa) drop-shadow(0 0 15px #ffd400)}
+#crocLayer .croc-tooth.learning-hint .tooth-visual path:first-child{fill:#fff7b7!important;stroke:#f3bd1e!important;stroke-width:5!important}
+@keyframes v27-inplace-wiggle{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+/* Removal happens only after the player selects this tooth. Never move its parent. */
+#crocLayer .croc-tooth.removed{animation:none!important;pointer-events:none}
+#crocLayer .croc-tooth.removed .tooth-visual{animation:v27-tooth-remove .55s ease-in forwards!important}
+@keyframes v27-tooth-remove{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.35)}}
+@media(prefers-reduced-motion:reduce){#crocLayer .croc-tooth.learning-hint .tooth-visual{animation:none!important}}

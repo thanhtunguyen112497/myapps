@@ -1,0 +1,4 @@
+/* V25: fixed, anatomically coherent front-view tooth sockets on green mouth rims. */
+.croc-layer #crocSvg .croc-tooth text{font-size:43px!important;font-weight:1000!important;fill:#193e43!important;stroke:#fffdf6!important;stroke-width:1.8px!important;paint-order:stroke fill;transform:none!important;pointer-events:none}
+.croc-layer #crocSvg .croc-tooth path:first-child{filter:drop-shadow(0 3px 2px #163d2e55)}
+.croc-layer #crocSvg .croc-tooth{touch-action:manipulation;cursor:pointer}

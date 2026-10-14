@@ -1,0 +1,17 @@
+/* V20 — consolidated replay control, arrow only loaded on click, lighter anatomically ordered hand. */
+.hud{gap:clamp(5px,.75vw,12px)!important;flex-wrap:wrap}
+.prompt-replay{font:inherit;cursor:pointer;text-align:center;border:2px solid rgba(255,255,255,.75);width:min(100%,580px);color:inherit;appearance:none;transition:box-shadow .2s,transform .2s,border-color .2s;}
+.prompt-replay:hover{box-shadow:0 8px 28px #3e93c43d;border-color:#fff;transform:translateY(-1px)}
+.prompt-replay:focus-visible{outline:4px solid #f6bf39;outline-offset:3px}
+.prompt-replay:active{transform:scale(.99)}
+.replay-cue{font-size:.72em;opacity:.75;margin-left:.65em;white-space:nowrap}
+.archery-bow .bow-rotor .bow-loaded-arrow{opacity:0;transition:opacity .09s}
+.archery-bow.is-loading .bow-rotor .bow-loaded-arrow{opacity:1}
+.croc-layer #biteHand svg{filter:drop-shadow(0 4px 8px #70452a24)}
+.croc-layer.finger-touch #biteHand,.croc-layer.jaw-closing #biteHand,.croc-layer.jaw-closed #biteHand,.croc-layer.bite-impact #biteHand{transform:translate(-27.9%,-1.9%) scale(.95)!important}
+@keyframes v20-index-in{0%{opacity:0;transform:translate(115%,110%) rotate(12deg) scale(.8)}15%{opacity:1}88%{opacity:1;transform:translate(-27.9%,0%) scale(.95)}100%{opacity:1;transform:translate(-27.9%,-1.9%) scale(.95)}}
+@keyframes v20-index-out{0%{opacity:1;transform:translate(-27.9%,-1.9%) scale(.95)}100%{opacity:0;transform:translate(115%,110%) rotate(12deg) scale(.82)}}
+.croc-layer.finger-press #biteHand{animation:v20-index-in 600ms cubic-bezier(.18,.68,.22,1) forwards!important}
+.croc-layer.finger-wrong #biteHand{animation:v20-index-out 450ms ease-in forwards!important}
+.croc-layer.finger-right #biteHand{animation:v20-index-out 540ms ease-in forwards!important}
+@media(max-width:700px){.replay-cue{display:block;margin-left:0}.prompt-replay{width:100%}}

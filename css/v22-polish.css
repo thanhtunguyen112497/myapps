@@ -1,0 +1,20 @@
+/* V22: balloon knot, curved string, tooth-root integration and restrained animated finger injury */
+.balloon .balloon-shape{overflow:visible}
+.balloon .balloon-shape::after{display:none!important}
+.balloon .balloon-knot{position:absolute;top:77%;left:50%;z-index:3;width:22px;height:19px;transform:translateX(-50%);background:linear-gradient(135deg,#fff9 0%,transparent 35%),var(--balloon);clip-path:polygon(50% 0,100% 91%,77% 100%,50% 80%,23% 100%,0 91%);filter:drop-shadow(1px 2px 1px #0004);pointer-events:none}
+.balloon .balloon-string{position:absolute!important;left:50%!important;top:83%!important;width:30px!important;height:95px!important;max-height:24%!important;background:none!important;transform:translateX(-50%)!important;border:0!important;z-index:2;pointer-events:none}
+.balloon .balloon-string svg{width:100%;height:100%;overflow:visible}
+.croc-layer #biteMarks{opacity:0!important;transition:opacity 110ms ease}
+.croc-layer.injured #biteMarks{opacity:1!important}
+.croc-layer #bloodDrops{opacity:0;pointer-events:none}
+.croc-layer.injured #bloodDrops{opacity:1}
+.croc-layer #bloodDrops .blood-drop{transform-box:fill-box;transform-origin:center;opacity:0}
+.croc-layer.injured #bloodDrops .drop-a{animation:drop-a 740ms 30ms ease-in forwards}
+.croc-layer.injured #bloodDrops .drop-b{animation:drop-b 800ms 160ms ease-in forwards}
+.croc-layer.injured #bloodDrops .drop-c{animation:drop-c 900ms 290ms ease-in forwards}
+@keyframes drop-a{0%{opacity:0;transform:translate(0,65px) scale(.5)}16%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(3px,155px) scale(.75)}}
+@keyframes drop-b{0%{opacity:0;transform:translate(0,68px) scale(.42)}20%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translate(-12px,166px) scale(.7)}}
+@keyframes drop-c{0%{opacity:0;transform:translate(0,70px) scale(.35)}20%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(14px,176px) scale(.65)}}
+.croc-layer .croc-tooth{cursor:pointer}
+.croc-layer .croc-tooth path:first-child{filter:drop-shadow(0 3px 2px #2b343344)}
+@media(prefers-reduced-motion:reduce){.croc-layer.injured #bloodDrops .blood-drop{animation:none;opacity:0}}

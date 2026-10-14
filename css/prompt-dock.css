@@ -1,0 +1,8 @@
+/* V14: question prompt is outside the playable canvas, never obscuring balloons or teeth. */
+#play .prompt-row{display:flex;justify-content:center;align-items:center;width:100%;margin:0 auto 14px;position:relative;z-index:1}
+#play .prompt.prompt-dock{position:relative;inset:auto;top:auto;left:auto;right:auto;bottom:auto;transform:none;margin:0;max-width:min(100%,580px);width:min(100%,480px);min-width:0;padding:9px 22px;border-radius:23px;pointer-events:none;box-shadow:0 5px 18px #3582a52b;background:linear-gradient(180deg,#fff,#edfaff)}
+#play .prompt-dock .prompt-label{font-size:clamp(10px,1.1vw,13px);letter-spacing:1.6px}
+#play .prompt-dock strong{font-size:clamp(22px,2.6vw,34px);line-height:1.25}
+#play .prompt-dock .prompt-equalizer{height:9px}
+#play .game-area{isolation:isolate}
+@media(max-width:650px){#play .prompt-row{margin-bottom:9px}#play .prompt.prompt-dock{width:100%;padding:8px 12px;border-radius:17px}#play .prompt-dock strong{font-size:24px}#play .prompt-dock .prompt-label{letter-spacing:.8px}}

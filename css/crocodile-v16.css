@@ -1,0 +1,34 @@
+/* V16 — responsive desktop controls and single-impact crocodile animation. */
+#play.screen.active{display:flex;flex-direction:column;gap:clamp(6px,1vh,12px);min-height:0;padding:clamp(8px,1.2vh,16px) clamp(10px,1.8vw,28px)}
+#play .hud{display:grid;grid-template-columns:repeat(4,minmax(75px,1fr)) repeat(3,minmax(115px,1.12fr));gap:clamp(5px,.6vw,10px);margin:0;align-items:stretch;width:100%}
+#play .huditem,#play .hudbutton{display:flex;justify-content:center;align-items:center;min-width:0;min-height:42px;padding:7px 8px;border-radius:12px;font-size:clamp(12px,1.12vw,17px);white-space:nowrap;text-align:center}
+#play .hudbutton{touch-action:manipulation}
+#play .prompt-row{margin:0!important;flex:0 0 auto}
+#play .prompt.prompt-dock{padding:5px 18px!important;border-radius:17px;max-width:440px}
+#play .prompt-dock strong{font-size:clamp(21px,2vw,29px)}
+#play .prompt-dock .prompt-label{font-size:11px}
+#play .prompt-dock .prompt-equalizer{height:5px}
+#play .game-area{flex:1 1 auto;height:auto;min-height:310px;max-height:none;border-width:4px;border-radius:22px}
+#play .croc-layer{padding:0}
+#play .croc-layer>svg{height:100%;width:min(100%,1100px);max-height:100%;object-fit:contain}
+/* An animated occlusion starts at the lip and extends down across the mouth. */
+.croc-layer #closedMouth{opacity:0;transform-box:fill-box;transform-origin:50% 0%;transform:scaleY(.02);transition:none!important;pointer-events:none}
+.croc-layer.jaw-closing #closedMouth{opacity:1;transform:scaleY(1);transition:transform 300ms cubic-bezier(.42,0,.98,.92),opacity 55ms linear!important}
+.croc-layer.jaw-closed #closedMouth,.croc-layer.bite-impact #closedMouth{opacity:1;transform:scaleY(1);transition:none!important}
+.croc-layer.jaw-opening #closedMouth{opacity:1;transform:scaleY(.02);transition:transform 500ms cubic-bezier(.13,.67,.23,1),opacity 500ms ease-in!important}
+/* Hide teeth behind the closing jaw once impact happens, never during the finger approach. */
+.croc-layer.jaw-closed #upperTeethSvg,.croc-layer.jaw-closed #lowerTeethSvg,.croc-layer.bite-impact #upperTeethSvg,.croc-layer.bite-impact #lowerTeethSvg{opacity:0}
+.croc-layer #biteHand{z-index:14;will-change:transform,opacity}
+.croc-layer.finger-press #biteHand{animation:v16-finger-in 480ms cubic-bezier(.16,.68,.26,1) forwards!important}
+.croc-layer.finger-touch #biteHand,.croc-layer.jaw-closing #biteHand,.croc-layer.jaw-closed #biteHand,.croc-layer.bite-impact #biteHand{opacity:1!important;animation:none!important;transform:translate(-51%,-3%) scale(.94)!important}
+.croc-layer.finger-wrong #biteHand{animation:v16-finger-out 500ms ease-in forwards!important}
+.croc-layer.finger-right #biteHand{animation:v16-finger-out 650ms ease-in forwards!important}
+@keyframes v16-finger-in{0%{opacity:0;transform:translate(85%,110%) rotate(13deg) scale(.83)}14%{opacity:1}100%{opacity:1;transform:translate(-51%,-3%) scale(.94)}}
+@keyframes v16-finger-out{0%{opacity:1;transform:translate(-51%,-3%) scale(.94)}100%{opacity:0;transform:translate(75%,115%) rotate(12deg) scale(.82)}}
+.croc-layer #biteMarks{opacity:0!important}
+.croc-layer.injured #biteMarks{opacity:1!important}
+@media(min-width:800px){body{min-height:100dvh}#app{min-height:100dvh;display:flex;flex-direction:column}main{flex:1;min-height:0;display:flex;flex-direction:column}#play.screen.active{flex:1;min-height:0}header{height:clamp(48px,6vh,70px);flex:0 0 auto}footer{padding:4px 8px;flex:0 0 auto}}
+@media(max-width:900px){#play .hud{grid-template-columns:repeat(4,minmax(0,1fr))}#play .hudbutton{grid-column:span 1}#play .hudbutton:first-of-type{grid-column:span 2}#play .hudbutton:last-of-type{grid-column:span 2}#play .game-area{min-height:360px}}
+@media(max-width:520px){#play .hud{grid-template-columns:repeat(2,minmax(0,1fr))}#play .hudbutton:first-of-type,#play .hudbutton:last-of-type{grid-column:auto}#play .huditem,#play .hudbutton{min-height:42px;font-size:12px}#play .game-area{min-height:330px}}
+@media(max-height:700px) and (min-width:800px){#play .huditem,#play .hudbutton{min-height:36px;padding:4px 6px}#play .prompt.prompt-dock{padding:3px 12px!important}#play .game-area{min-height:240px}}
+@media(prefers-reduced-motion:reduce){.croc-layer.jaw-closing #closedMouth{transition-duration:140ms!important}.croc-layer.jaw-opening #closedMouth{transition-duration:200ms!important}}

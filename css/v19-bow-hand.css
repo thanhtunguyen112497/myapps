@@ -1,0 +1,15 @@
+/* V19: larger, fully aimed archery rig; 5-finger hand with index fingertip at x=64,y=6 */
+.archery-bow{width:clamp(145px,19vw,225px)!important;height:clamp(115px,21vh,185px)!important;bottom:0!important;z-index:8!important}
+.archery-bow svg{width:100%;height:calc(100% - 14px);overflow:visible;transform:none!important;animation:none!important}
+.archery-bow .bow-rotor{transform-box:view-box;transform-origin:50% 78%;transform:rotate(var(--aim,0deg));transition:transform 160ms cubic-bezier(.22,.7,.25,1)}
+.archery-bow.bow-release .bow-rotor{animation:v19-release 260ms ease-out}
+@keyframes v19-release{0%{scale:1}25%{scale:.96 1.04}65%{scale:1.025 .99}100%{scale:1}}
+.v19-arrow{position:absolute!important;z-index:20!important;width:44px!important;height:160px!important;pointer-events:none!important;transform-origin:0 0!important;filter:drop-shadow(0 3px 3px #1b314777)}
+.v19-arrow svg{width:100%;height:100%;display:block}
+.croc-layer.finger-touch #biteHand,.croc-layer.jaw-closing #biteHand,.croc-layer.jaw-closed #biteHand,.croc-layer.bite-impact #biteHand{transform:translate(-33.7%,-2.3%) scale(.95)!important}
+.croc-layer.finger-press #biteHand{animation:v19-index-in 600ms cubic-bezier(.18,.68,.22,1) forwards!important}
+.croc-layer.finger-wrong #biteHand{animation:v19-index-out 450ms ease-in forwards!important}
+.croc-layer.finger-right #biteHand{animation:v19-index-out 540ms ease-in forwards!important}
+@keyframes v19-index-in{0%{opacity:0;transform:translate(115%,110%) rotate(12deg) scale(.8)}15%{opacity:1}88%{opacity:1;transform:translate(-33.7%,-1%) scale(.95)}100%{opacity:1;transform:translate(-33.7%,-2.3%) scale(.95)}}
+@keyframes v19-index-out{0%{opacity:1;transform:translate(-33.7%,-2.3%) scale(.95)}100%{opacity:0;transform:translate(115%,110%) rotate(12deg) scale(.82)}}
+@media(max-height:650px){.archery-bow{width:125px!important;height:104px!important}.v19-arrow{height:120px!important}}

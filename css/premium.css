@@ -1,0 +1,110 @@
+
+/* V3 art direction: layered toy-like interface, warm lighting, restrained motion */
+:root{--ink:#234966;--gold:#ffc64d;--mint:#a3efcb;--shadow:0 18px 42px rgba(35,83,123,.18)}
+body{background:radial-gradient(circle at 8% 13%,#fff8d5 0 10%,transparent 30%),radial-gradient(circle at 90% 80%,#c9edff 0 12%,transparent 35%),linear-gradient(155deg,#e9f9ff,#f6eaff 60%,#fff2da);min-height:100vh}
+header{background:rgba(255,255,255,.86);backdrop-filter:blur(16px);border-bottom:2px solid #ffffff;box-shadow:0 7px 28px #6494bc1d}
+.brand{letter-spacing:1px;text-shadow:0 2px white}
+.hero{position:relative}.hero-kicker{font-size:12px;font-weight:1000;letter-spacing:3px;color:#d6818d;margin-bottom:7px}
+.hero h1{letter-spacing:-1.8px;text-shadow:0 5px 0 #ffffffaa}
+.gamecards{max-width:1020px;margin-inline:auto;gap:28px}
+.gamecard{position:relative;overflow:hidden;box-shadow:0 20px 0 #ffffff66,0 25px 42px #5080b63b;transition:transform .2s,box-shadow .2s;border:5px solid #fff!important}
+.gamecard:before{content:'';position:absolute;inset:0 0 auto;height:50%;background:linear-gradient(#ffffff55,transparent);pointer-events:none}
+.gamecard:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 27px 0 #ffffff55,0 33px 48px #5080b644}
+.gamecard:active{transform:translateY(2px) scale(.98)}
+.cardart{height:150px!important;width:100%;display:flex;align-items:center;justify-content:center;position:relative}
+.balloon-art i{display:block;position:absolute;width:68px;height:88px;border-radius:50% 50% 46% 46%;border:3px solid #ffffff99;box-shadow:inset -11px -12px 14px #354b6a22, inset 12px 13px 12px #ffffff55,0 10px 16px #4e79a833;animation:artfloat 3s ease-in-out infinite}
+.balloon-art i:after{content:'';position:absolute;top:100%;left:50%;height:30px;border-left:2px solid #738fa8}
+.balloon-art i:nth-child(1){background:#ff7298;left:24%;top:25px;transform:rotate(-12deg)}
+.balloon-art i:nth-child(2){background:#ffd15b;left:40%;top:8px;animation-delay:-.8s}
+.balloon-art i:nth-child(3){background:#7d8bfa;left:56%;top:26px;animation-delay:-1.4s}
+.balloon-art i:nth-child(4){background:#63d4ba;left:70%;top:42px;width:52px;height:68px;animation-delay:-2s}
+.croc-art svg{width:min(95%,280px);height:160px;filter:drop-shadow(0 9px 0 #236e4933);animation:artfloat 3.2s ease-in-out infinite}
+@keyframes artfloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.panel{border:3px solid white!important;box-shadow:var(--shadow)!important;background:linear-gradient(150deg,#ffffff,#f6fcff)!important}
+.number-tile{transition:transform .18s,box-shadow .18s}.number-tile:hover{transform:translateY(-4px)}.number-tile.selected{box-shadow:0 5px 0 #2787a7!important}
+.sound-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 20px;padding:15px;margin:15px 0;border-radius:19px;background:#eaf6ff;border:2px solid #d5edff}
+.sound-controls label{display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:13px;color:#37627b}.sound-controls input{accent-color:#2c9ec7;width:145px}
+.game-area{border:5px solid #fff;border-radius:30px;background:radial-gradient(circle at 83% 18%,#fff6bf 0 4%,transparent 14%),linear-gradient(180deg,#8cdbff 0%,#d6f6ff 72%,#eaffc6 100%);box-shadow:var(--shadow);overflow:hidden}
+.sky-decor:before{content:'';position:absolute;right:12%;top:7%;width:100px;height:100px;border-radius:50%;background:#fff5ad;box-shadow:0 0 0 15px #fff4a044,0 0 60px 35px #fff5b255}
+.cloud{animation:cloudfloat 16s ease-in-out infinite}.c2{animation-delay:-5s}.c3{animation-delay:-10s}
+@keyframes cloudfloat{0%,100%{translate:0 0}50%{translate:26px 0}}
+.hill{bottom:-108px;height:190px;background:linear-gradient(#a1e87d,#58bf6a)}.h2{background:linear-gradient(#80d66d,#42a96b)}
+.prompt{top:10px;background:linear-gradient(#fff,#eafaff);border:3px solid white;box-shadow:0 9px 0 #8bd3e544,0 12px 22px #3582a52b;border-radius:26px;padding:8px 28px}
+.prompt-equalizer{display:flex;align-items:center;justify-content:center;height:13px;gap:3px}.prompt-equalizer b{height:5px;width:4px;border-radius:3px;background:#54bbd4;animation:eq .7s ease-in-out infinite alternate}.prompt-equalizer b:nth-child(2){animation-delay:-.3s}.prompt-equalizer b:nth-child(3){animation-delay:-.6s}.prompt-equalizer b:nth-child(4){animation-delay:-.2s}.prompt-equalizer b:nth-child(5){animation-delay:-.45s}@keyframes eq{to{height:12px}}
+.balloon{filter:drop-shadow(0 14px 9px #37749a26)}.balloon-shape{box-shadow:inset -18px -22px 18px #25355c25,inset 14px 10px 20px #fff5,0 11px 18px #2d749333!important;border:3px solid #ffffff7c!important}
+.balloon-shape:before{content:'';position:absolute;left:21%;top:13%;width:16%;height:27%;border-radius:50%;background:#ffffff9c;transform:rotate(25deg);filter:blur(3px)}
+.balloon-number{position:relative;z-index:1;text-shadow:0 4px 0 #2b5b6c44!important}
+.balloon:focus-visible .balloon-shape{outline:5px solid #ffdf65;outline-offset:5px}
+.croc-layer svg{filter:drop-shadow(0 18px 4px #37775c25)}
+.croc-tooth{transition:filter .2s}.croc-tooth:hover{filter:drop-shadow(0 0 9px #fffca1)}
+.croc-layer #biteHand{width:120px;height:120px;right:13%;bottom:8%}.croc-layer #biteHand svg{width:100%;height:100%}
+.feedback{filter:drop-shadow(0 5px 2px #fff8)}.result-stars{font-size:45px;letter-spacing:12px;color:#ffba38;text-shadow:0 4px 0 #ffe5a2;animation:artfloat 2s ease-in-out infinite}
+.hud{gap:8px}.huditem,.hudbutton{box-shadow:0 4px 0 #ffffff88}
+@media(max-width:650px){.cardart{height:120px!important}.sound-controls{gap:8px}.sound-controls input{width:110px}.hero-kicker{letter-spacing:1px}.croc-layer #biteHand{width:70px;height:70px}}
+@media(prefers-reduced-motion:reduce){.balloon-art i,.croc-art svg,.cloud,.result-stars,.prompt-equalizer b{animation:none!important}}
+/* V4: persistent, separated balloons; hand enters the mouth on every tooth touch. */
+.balloon-layer{overflow:hidden}.balloon{transition:none;transform-origin:center center}.balloon.pop{animation:balloon-burst .38s ease-out forwards!important;z-index:9!important}.balloon.pop .balloon-shape{animation:balloon-flash .24s ease-out forwards}
+@keyframes balloon-burst{0%{opacity:1;filter:brightness(1)}42%{opacity:1;filter:brightness(1.45)}100%{opacity:0;visibility:hidden;filter:brightness(2)}}
+@keyframes balloon-flash{0%{scale:1}40%{scale:1.27}100%{scale:.1}}
+.croc-layer{isolation:isolate}.croc-layer #biteHand{z-index:6;right:14%;bottom:3%;width:clamp(90px,12vw,165px);height:clamp(90px,12vw,165px);transform-origin:bottom right;opacity:0;filter:drop-shadow(0 9px 5px #315b5044)}
+.croc-layer.reaching #biteHand{animation:hand-reach .8s cubic-bezier(.25,.65,.3,1) both}
+.croc-layer.hand-bite #biteHand{animation:hand-bite-in .88s cubic-bezier(.25,.65,.3,1) both}
+@keyframes hand-reach{0%{opacity:0;transform:translate(90px,110px) rotate(26deg)}22%{opacity:1}46%{opacity:1;transform:translate(-115px,-92px) rotate(-16deg)}65%{opacity:1;transform:translate(-115px,-92px) rotate(-16deg)}100%{opacity:0;transform:translate(95px,120px) rotate(24deg)}}
+@keyframes hand-bite-in{0%{opacity:0;transform:translate(95px,115px) rotate(25deg)}18%{opacity:1}39%{opacity:1;transform:translate(-120px,-95px) rotate(-19deg)}58%{opacity:1;transform:translate(-120px,-95px) rotate(-19deg)}75%{opacity:1;transform:translate(-58px,-48px) rotate(14deg)}100%{opacity:0;transform:translate(115px,120px) rotate(30deg)}}
+.croc-layer.biting #biteHand{animation:none}.croc-layer.biting.hand-bite #biteHand{animation:hand-bite-in .88s both}
+.croc-layer #upperJaw{transform-box:fill-box;transform-origin:50% 16%}.croc-layer.biting #upperJaw{animation:jaw-bite .78s cubic-bezier(.4,0,.2,1)}
+.croc-layer.happy #eyes{animation:eye-happy .65s}
+.croc-tooth.removed{animation:tooth-out .6s cubic-bezier(.15,.6,.2,1) forwards}
+@media(prefers-reduced-motion:reduce){.croc-layer.reaching #biteHand,.croc-layer.hand-bite #biteHand{animation-duration:.2s}}
+
+/* V5: one-finger reaching gesture, small cartoon bite marks only after wrong answer */
+.croc-layer #biteHand{position:absolute;left:var(--finger-x,50%);top:var(--finger-y,55%);right:auto;bottom:auto;width:clamp(125px,17vw,215px);height:clamp(125px,17vw,215px);transform-origin:8% 25%;opacity:0;z-index:8;pointer-events:none;filter:drop-shadow(0 8px 5px #234c503d)}
+.croc-layer #biteHand svg{width:100%;height:100%;overflow:visible}
+#biteMarks{opacity:0;transition:opacity .1s}
+.croc-layer.injured #biteMarks{opacity:1}
+.croc-layer.reaching #biteHand{animation:fingerReach 1s cubic-bezier(.23,.65,.31,1) both}
+.croc-layer.hand-bite #biteHand,.croc-layer.biting.hand-bite #biteHand{animation:fingerBitten 1.12s cubic-bezier(.22,.65,.36,1) both}
+@keyframes fingerReach{0%{opacity:0;transform:translate(140px,130px) rotate(23deg)}18%{opacity:1}48%,63%{opacity:1;transform:translate(-40px,-45px) rotate(-14deg)}100%{opacity:0;transform:translate(140px,120px) rotate(20deg)}}
+@keyframes fingerBitten{0%{opacity:0;transform:translate(140px,130px) rotate(23deg)}15%{opacity:1}37%{opacity:1;transform:translate(-40px,-45px) rotate(-14deg)}48%,58%{opacity:1;transform:translate(-43px,-44px) rotate(-12deg)}72%{opacity:1;transform:translate(5px,-15px) rotate(10deg)}100%{opacity:0;transform:translate(150px,135px) rotate(27deg)}}
+@media(prefers-reduced-motion:reduce){.croc-layer.reaching #biteHand,.croc-layer.hand-bite #biteHand{animation-duration:.4s}}
+
+/* V6 — accurate arrow impact and finger-first feedback choreography */
+.flying-arrow{position:absolute;width:115px;height:38px;z-index:8;pointer-events:none;transform-origin:5% 50%;filter:drop-shadow(0 4px 3px #284b6380)}
+.flying-arrow svg{display:block;width:100%;height:100%}
+.croc-layer #biteHand{transform-origin:10% 15%;opacity:0;left:50%;top:60%;z-index:12}
+.croc-layer.finger-press #biteHand{animation:finger-approach-v6 .42s cubic-bezier(.19,.75,.35,1) forwards!important}
+.croc-layer.finger-touch #biteHand{opacity:1;transform:translate(-12%,-12%) rotate(-8deg) scale(.98)}
+.croc-layer.finger-right #biteHand{animation:finger-exit-v6 .72s ease-in forwards!important}
+.croc-layer.finger-wrong #biteHand{animation:finger-bite-v6 .76s ease-in forwards!important}
+.croc-layer.finger-press #biteMarks,.croc-layer.finger-touch #biteMarks,.croc-layer.finger-right #biteMarks{opacity:0!important}
+.croc-layer.finger-wrong.injured #biteMarks{opacity:1!important}
+@keyframes finger-approach-v6{0%{opacity:0;transform:translate(115px,130px) rotate(24deg) scale(.9)}12%{opacity:1}84%{opacity:1;transform:translate(-12%,-12%) rotate(-8deg) scale(.98)}100%{opacity:1;transform:translate(-12%,-12%) rotate(-8deg) scale(.93)}}
+@keyframes finger-exit-v6{0%{opacity:1;transform:translate(-12%,-12%) rotate(-8deg)}100%{opacity:0;transform:translate(135px,130px) rotate(25deg)}}
+@keyframes finger-bite-v6{0%,22%{opacity:1;transform:translate(-12%,-12%) rotate(-8deg)}45%{opacity:1;transform:translate(-12%,-6%) rotate(8deg)}100%{opacity:0;transform:translate(145px,145px) rotate(24deg)}}
+.croc-layer.finger-wrong #upperJaw{animation:jaw-bite .75s ease-in-out}
+
+/* V10 — side-view crocodile, broad mouth and oversized classroom-friendly teeth */
+.croc-layer{padding-top:0;align-items:center;justify-content:center}
+.croc-layer #crocSvg{width:min(99%,1300px);height:100%;max-height:680px;overflow:visible;filter:drop-shadow(0 18px 9px #245c473d)}
+.croc-tooth{touch-action:manipulation;cursor:pointer;filter:drop-shadow(0 4px 2px #24192255)}
+.croc-tooth path{transition:fill .12s,stroke .12s}
+.croc-tooth text{font-family:'Trebuchet MS',Verdana,sans-serif;font-weight:1000;font-size:41px;paint-order:stroke;stroke:#fffdf6;stroke-width:1.5px;fill:#294c53;pointer-events:none;dominant-baseline:middle;transform:translateY(-7px)}
+.croc-tooth:hover path{fill:#fff4b7;stroke:#f2b54a}
+.croc-tooth:focus-visible path{stroke:#ffb629;stroke-width:7px}
+.croc-layer #upperJaw{transform-box:fill-box;transform-origin:50% 100%}
+@keyframes crocodile-horizontal-bite{0%,100%{transform:translateY(0)}36%,58%{transform:translateY(88px)}}
+.croc-layer.biting #upperJaw,.croc-layer.finger-wrong #upperJaw{animation:crocodile-horizontal-bite .75s cubic-bezier(.32,.02,.24,1)}
+@media(max-width:700px){.croc-layer #crocSvg{width:115%;max-width:none;flex-shrink:0}.croc-tooth text{font-size:44px}}
+
+/* V11: physically hinged crocodile jaws; no vertical or horizontal jaw slamming. */
+.croc-layer #upperJaw{transform-box:view-box;transform-origin:815px 286px;will-change:transform}
+.croc-layer #lowerJaw{transform-box:view-box;transform-origin:815px 380px;will-change:transform}
+@keyframes croc-hinge-upper{0%,100%{transform:rotate(0deg)}18%{transform:rotate(2deg)}42%,56%{transform:rotate(-10.5deg)}73%{transform:rotate(-3deg)}}
+@keyframes croc-hinge-lower{0%,100%{transform:rotate(0deg)}42%,56%{transform:rotate(3deg)}73%{transform:rotate(1deg)}}
+.croc-layer.biting #upperJaw,.croc-layer.finger-wrong #upperJaw{animation:croc-hinge-upper .9s cubic-bezier(.38,0,.18,1) both!important}
+.croc-layer.biting #lowerJaw,.croc-layer.finger-wrong #lowerJaw{animation:croc-hinge-lower .9s cubic-bezier(.38,0,.18,1) both!important}
+.croc-tooth text{font-size:38px;stroke-width:1px;transform:none;dominant-baseline:middle}
+.croc-tooth path{vector-effect:non-scaling-stroke}
+.croc-layer #biteHand{z-index:11}
+.croc-layer.finger-wrong #biteHand{animation:finger-bite-v6 .9s ease-in forwards!important}
+@media(prefers-reduced-motion:reduce){.croc-layer.biting #upperJaw,.croc-layer.finger-wrong #upperJaw,.croc-layer.biting #lowerJaw,.croc-layer.finger-wrong #lowerJaw{animation-duration:.25s!important}}
